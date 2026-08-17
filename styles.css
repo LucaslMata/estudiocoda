@@ -152,15 +152,30 @@ p { margin: 0 0 1rem; }
   gap: 1rem;
   min-height: 70px;
 }
+/* Logo: wordmark apilado — "ESTUDIO" (bajada) sobre "CODA" (protagonista) */
 .brand {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1;
   text-decoration: none;
+  color: var(--text);
 }
-.brand-dot { color: var(--accent); }
+.brand-kicker {
+  font-family: var(--font-display);
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  padding-left: .42em;   /* compensa el tracking para alinear con "CODA" */
+}
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
 
 .nav {
   display: none;              /* oculto en mobile */
@@ -860,13 +875,14 @@ p { margin: 0 0 1rem; }
   flex-wrap: wrap;
 }
 .footer-brand {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1;
+  color: var(--text);
   margin: 0;
 }
+.footer-brand .brand-name { font-size: 1.3rem; }
+.footer-brand .brand-kicker { font-size: .56rem; }
 .footer-contact {
   display: flex;
   align-items: center;
