@@ -120,8 +120,11 @@ if (lightbox) {
   dots.forEach((d) => d.addEventListener("click", () => ir(+d.dataset.i)));
 
   // Clic: si es una lateral, la trae al centro; si es la central, la abre en grande.
+  //        (si venías deslizando, el clic no cuenta)
+  let huboSwipe = false;
   slides.forEach((s) => {
     s.addEventListener("click", () => {
+      if (huboSwipe) { huboSwipe = false; return; }
       const i = +s.dataset.i;
       if (i !== index) {
         ir(i);
@@ -132,7 +135,26 @@ if (lightbox) {
     });
   });
 
-  // Teclado: flechas ← → cuando el carrusel tiene el foco
+  // Deslizar con el dedo (mobile): swipe horizontal para cambiar de foto
+  let touchX = null, touchY = null;
+  carousel.addEventListener("touchstart", (e) => {
+    touchX = e.touches[0].clientX;
+    touchY = e.touches[0].clientY;
+    huboSwipe = false;
+  }, { passive: true });
+  carousel.addEventListener("touchmove", (e) => {
+    if (touchX === null) return;
+    if (Math.abs(e.touches[0].clientX - touchX) > 8 || Math.abs(e.touches[0].clientY - touchY) > 8) huboSwipe = true;
+  }, { passive: true });
+  carousel.addEventListener("touchend", (e) => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    const dy = e.changedTouches[0].clientY - touchY;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) ir(dx < 0 ? index + 1 : index - 1);
+    touchX = touchY = null;
+  }, { passive: true });
+
+  // Teclado: flechas ← → cuando el carrusel tiene el foco (desktop)
   carousel.setAttribute("tabindex", "0");
   carousel.addEventListener("keydown", (e) => {
     if (e.key === "ArrowLeft") { e.preventDefault(); ir(index - 1); }

@@ -520,15 +520,10 @@ p { margin: 0 0 1rem; }
 .slide.is-current { cursor: default; }
 .slide.is-current img { cursor: zoom-in; }
 
-/* Flechas — en mobile superpuestas a los costados; en desktop, columnas propias */
+/* Flechas — en mobile no van (se desliza con el dedo); solo aparecen en desktop */
 .car-arrow {
-  position: absolute;
-  top: calc(var(--slideH) / 2);
-  transform: translateY(-50%);
+  display: none;
   z-index: 5;
-  width: 2.4rem;
-  height: 2.4rem;
-  display: grid;
   place-items: center;
   font-size: 1.5rem;
   line-height: 1;
@@ -568,8 +563,7 @@ p { margin: 0 0 1rem; }
   }
   .car-viewport { grid-column: 2; grid-row: 1; }
   .car-arrow {
-    position: static;
-    transform: none;
+    display: grid;
     width: 2.9rem;
     height: 2.9rem;
     font-size: 1.7rem;
