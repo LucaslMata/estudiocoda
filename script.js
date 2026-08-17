@@ -74,8 +74,10 @@ if (lightbox) {
   const GAP = 14; // separación positiva = las laterales se ven completas, sin taparse
 
   function actualizar() {
-    // central acotada para que entren completas las dos laterales a los costados
-    const capW = Math.min(460, Math.round(viewport.offsetWidth * 0.42));
+    // en mobile la central usa casi todo el ancho; en desktop se acota para que
+    // entren completas las dos laterales a los costados
+    const vw = viewport.offsetWidth;
+    const capW = vw < 620 ? Math.round(vw * 0.66) : Math.min(460, Math.round(vw * 0.42));
     slides.forEach((s) => { s.querySelector("img").style.maxWidth = capW + "px"; });
     // media anchura (ya escalada) de cada foto
     const semi = (i, sc) => (slides[i].offsetWidth * sc) / 2;

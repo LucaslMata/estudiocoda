@@ -492,13 +492,9 @@ p { margin: 0 0 1rem; }
 /* ---------- Carrusel / Trabajos (coverflow) ---------- */
 .carousel {
   position: relative;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;   /* flecha | fotos | flecha */
-  align-items: center;
-  column-gap: .5rem;
-  --slideH: clamp(300px, 54vh, 440px);
+  --slideH: clamp(370px, 60vh, 500px);   /* mobile: foto central más grande */
 }
-.car-viewport { position: relative; grid-column: 2; grid-row: 1; height: var(--slideH); overflow: hidden; }
+.car-viewport { position: relative; height: var(--slideH); overflow: hidden; }
 .car-track { position: absolute; inset: 0; }
 /* Cada foto se ve COMPLETA, a su proporción real, sin marco.
    La posición/escala/opacidad las maneja el JS (efecto coverflow). */
@@ -517,21 +513,24 @@ p { margin: 0 0 1rem; }
   width: auto;
   height: auto;
   max-height: var(--slideH);
-  max-width: min(88vw, 600px);
+  max-width: min(92vw, 600px);
   border-radius: var(--radius);
   user-select: none;
 }
 .slide.is-current { cursor: default; }
 .slide.is-current img { cursor: zoom-in; }
 
-/* Flechas: viven en columnas propias a los costados, nunca sobre las fotos */
+/* Flechas — en mobile superpuestas a los costados; en desktop, columnas propias */
 .car-arrow {
+  position: absolute;
+  top: calc(var(--slideH) / 2);
+  transform: translateY(-50%);
   z-index: 5;
-  width: 2.9rem;
-  height: 2.9rem;
+  width: 2.4rem;
+  height: 2.4rem;
   display: grid;
   place-items: center;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   line-height: 1;
   color: var(--text);
   background: var(--surface);
@@ -541,11 +540,11 @@ p { margin: 0 0 1rem; }
   transition: background .2s var(--ease), border-color .2s var(--ease);
 }
 .car-arrow:hover { background: var(--surface-2); border-color: var(--faint); }
-.car-prev { grid-column: 1; grid-row: 1; }
-.car-next { grid-column: 3; grid-row: 1; }
+.car-prev { left: .25rem; }
+.car-next { right: .25rem; }
 
 /* Puntitos indicadores */
-.car-dots { grid-column: 1 / -1; grid-row: 2; display: flex; gap: .55rem; justify-content: center; margin-top: 1.75rem; }
+.car-dots { display: flex; gap: .55rem; justify-content: center; margin-top: 1.75rem; }
 .car-dot {
   width: 8px;
   height: 8px;
@@ -560,7 +559,24 @@ p { margin: 0 0 1rem; }
 .car-dot.is-current { background: var(--accent); transform: scale(1.25); }
 
 @media (min-width: 760px) {
-  .carousel { column-gap: 1.5rem; --slideH: clamp(380px, 62vh, 560px); }
+  .carousel {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;   /* flecha | fotos | flecha */
+    align-items: center;
+    column-gap: 1.5rem;
+    --slideH: clamp(380px, 62vh, 560px);
+  }
+  .car-viewport { grid-column: 2; grid-row: 1; }
+  .car-arrow {
+    position: static;
+    transform: none;
+    width: 2.9rem;
+    height: 2.9rem;
+    font-size: 1.7rem;
+  }
+  .car-prev { grid-column: 1; grid-row: 1; }
+  .car-next { grid-column: 3; grid-row: 1; }
+  .car-dots { grid-column: 1 / -1; grid-row: 2; }
 }
 
 /* ---------- Lightbox (foto en grande) ---------- */
@@ -602,14 +618,14 @@ p { margin: 0 0 1rem; }
   place-items: center;
   font-size: 1.9rem;
   line-height: 1;
-  color: var(--text);
-  background: rgba(236, 228, 212, .10);
-  border: 1px solid var(--border);
+  color: #fff;   /* el lightbox siempre es fondo oscuro → X blanca (independiente del tema) */
+  background: rgba(255, 255, 255, .14);
+  border: 1px solid rgba(255, 255, 255, .3);
   border-radius: 999px;
   cursor: pointer;
   transition: background .2s var(--ease);
 }
-.lightbox-close:hover { background: rgba(236, 228, 212, .18); }
+.lightbox-close:hover { background: rgba(255, 255, 255, .26); }
 
 /* ---------- Tarjetas "Para quién es" ---------- */
 .cards {
