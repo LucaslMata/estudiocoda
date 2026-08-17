@@ -340,6 +340,7 @@ p { margin: 0 0 1rem; }
 .plan-featured .plan-price { color: #fff; }
 .plan-featured .plan-meta { color: rgba(255,255,255,.5); }
 .plan-featured .plan-desc { color: rgba(255,255,255,.72); }
+.plan-featured .plan-tagline { color: #fff; }
 
 .plan-badge {
   align-self: flex-start;
@@ -355,6 +356,14 @@ p { margin: 0 0 1rem; }
   margin-bottom: 1.1rem;
 }
 .plan h3 { font-size: 1.35rem; margin-bottom: .4rem; }
+/* Frase de beneficio bajo el nombre (vende el resultado, no la especificación) */
+.plan-tagline {
+  font-size: 1.02rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.35;
+  margin: 0 0 1.1rem;
+}
 .plan-meta {
   font-family: var(--font-ui);
   font-size: .72rem;
@@ -398,6 +407,43 @@ p { margin: 0 0 1rem; }
 
 @media (min-width: 760px) {
   .plans { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Bloque "Todos los paquetes incluyen" */
+.plans-includes {
+  margin-top: 3rem;
+  padding-top: 2.75rem;
+  border-top: 1px solid var(--border);
+}
+.includes-title {
+  font-family: var(--font-ui);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  text-align: center;
+  margin: 0 0 2.25rem;
+}
+.includes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.75rem;
+  grid-template-columns: 1fr;
+}
+.includes-list h4 {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 .4rem;
+}
+.includes-list p { color: var(--muted); margin: 0; line-height: 1.5; }
+
+@media (min-width: 760px) {
+  .includes-list { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
 }
 
 /* ---------- Carrusel / Trabajos (coverflow) ---------- */
