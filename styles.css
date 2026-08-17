@@ -162,7 +162,7 @@ p { margin: 0 0 1rem; }
 }
 .brand-kicker {
   font-family: var(--font-display);
-  font-size: .62rem;
+  font-size: .74rem;
   font-weight: 600;
   letter-spacing: .42em;
   text-transform: uppercase;
@@ -170,11 +170,11 @@ p { margin: 0 0 1rem; }
 }
 .brand-name {
   font-family: var(--font-display);
-  font-size: 1.55rem;
+  font-size: 2rem;
   font-weight: 900;
   letter-spacing: -0.02em;
   text-transform: uppercase;
-  margin-top: 3px;
+  margin-top: 4px;
 }
 
 .nav {
@@ -881,8 +881,8 @@ p { margin: 0 0 1rem; }
   color: var(--text);
   margin: 0;
 }
-.footer-brand .brand-name { font-size: 1.3rem; }
-.footer-brand .brand-kicker { font-size: .56rem; }
+.footer-brand .brand-name { font-size: 1.6rem; }
+.footer-brand .brand-kicker { font-size: .64rem; }
 .footer-contact {
   display: flex;
   align-items: center;
