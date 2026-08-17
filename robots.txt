@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://REEMPLAZAR-DOMINIO.com/sitemap.xml
+Sitemap: https://estudiocoda.art/sitemap.xml

@@ -17,8 +17,9 @@ Sitio estático (HTML + CSS + JS vanilla, sin build step).
 
 Static Site en **Render** · Build Command: (vacío) · Publish Directory: `.`
 
+Dominio: **https://estudiocoda.art**
+
 ## Pendientes
 
-- Reemplazar `https://REEMPLAZAR-DOMINIO.com` por el dominio real (en `index.html`, `robots.txt` y `sitemap.xml`).
 - Cargar los precios de los paquetes (hoy en `$00.000`).
 - Reemplazar la foto `assets/quiensoy.jpg` por el retrato definitivo.
