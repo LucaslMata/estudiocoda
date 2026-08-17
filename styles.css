@@ -362,8 +362,38 @@ p { margin: 0 0 1rem; }
   font-weight: 500;
   color: var(--text);
   line-height: 1.35;
-  margin: 0 0 1.1rem;
+  margin: 0 0 1.25rem;
 }
+/* Qué incluye (lista concreta, no un renglón que invita a dividir precio/foto) */
+.plan-specs {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  display: grid;
+  gap: .5rem;
+}
+.plan-specs li {
+  position: relative;
+  padding-left: 1.4rem;
+  color: var(--muted);
+  font-size: .95rem;
+  line-height: 1.4;
+}
+.plan-specs li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .5em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.plan-featured .plan-specs li { color: rgba(255,255,255,.82); }
+.plan-featured .plan-specs li::before { background: #fff; }
+/* Para quién / uso */
+.plan-for { font-size: .9rem; color: var(--muted); margin: 0 0 1.25rem; line-height: 1.45; }
+.plan-featured .plan-for { color: rgba(255,255,255,.6); }
 .plan-meta {
   font-family: var(--font-ui);
   font-size: .72rem;
