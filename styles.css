@@ -681,6 +681,9 @@ p { margin: 0 0 1rem; }
   flex-direction: column;
   gap: 2.25rem;
 }
+/* Texto solo (sin foto por ahora). Para reactivar la foto: descomentá el <figure>
+   en index.html; el @media de abajo vuelve a acomodar las 2 columnas. */
+.about-text { max-width: 42rem; }
 .about-lead {
   font-size: 1.2rem;
   font-weight: 600;
