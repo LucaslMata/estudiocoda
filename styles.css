@@ -164,9 +164,9 @@ p { margin: 0 0 1rem; }
   font-family: var(--font-display);
   font-size: .74rem;
   font-weight: 600;
-  letter-spacing: .42em;
+  letter-spacing: .34em;
   text-transform: uppercase;
-  padding-left: .42em;   /* compensa el tracking para alinear con "CODA" */
+  /* sin padding: alinea el borde izquierdo con "CODA" */
 }
 .brand-name {
   font-family: var(--font-display);
