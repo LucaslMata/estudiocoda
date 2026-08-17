@@ -439,10 +439,10 @@ p { margin: 0 0 1rem; }
   .plans { grid-template-columns: repeat(3, 1fr); }
 }
 
-/* Bloque "Todos los paquetes incluyen" */
+/* Bloque "En todas las sesiones" — promesa de servicio, centrada y con íconos */
 .plans-includes {
-  margin-top: 3rem;
-  padding-top: 2.75rem;
+  margin-top: 3.5rem;
+  padding-top: 3rem;
   border-top: 1px solid var(--border);
 }
 .includes-title {
@@ -453,27 +453,40 @@ p { margin: 0 0 1rem; }
   text-transform: uppercase;
   color: var(--faint);
   text-align: center;
-  margin: 0 0 2.25rem;
+  margin: 0 0 2.5rem;
 }
 .includes-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 1.75rem;
+  gap: 2.25rem;
   grid-template-columns: 1fr;
 }
+.includes-list li { text-align: center; }
+.includes-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  margin-bottom: 1.1rem;
+}
+.includes-icon svg { width: 22px; height: 22px; display: block; }
 .includes-list h4 {
   font-family: var(--font-sans);
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  margin: 0 0 .4rem;
+  margin: 0 0 .5rem;
 }
-.includes-list p { color: var(--muted); margin: 0; line-height: 1.5; }
+.includes-list p { color: var(--muted); margin: 0 auto; max-width: 32ch; line-height: 1.55; }
 
 @media (min-width: 760px) {
-  .includes-list { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+  .includes-list { grid-template-columns: repeat(3, 1fr); gap: 2.75rem; }
 }
 
 /* ---------- Carrusel / Trabajos (coverflow) ---------- */
