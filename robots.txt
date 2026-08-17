@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://REEMPLAZAR-DOMINIO.com/sitemap.xml

@@ -1,0 +1,14 @@
+Poné acá tus imágenes (retratos, logo, favicon, etc.).
+
+Sugerencias de nombres:
+- retrato-hero.jpg   -> foto principal del hero
+- favicon.png        -> ícono de la pestaña
+
+Para usar la foto del hero en index.html, reemplazá el bloque
+<figure class="hero-media"> ... </figure> por:
+
+  <figure class="hero-media">
+    <img src="assets/retrato-hero.jpg" alt="Retrato profesional de ejemplo" />
+  </figure>
+
+Formatos recomendados: JPG o WEBP, optimizadas para web (menos de ~400 KB).
