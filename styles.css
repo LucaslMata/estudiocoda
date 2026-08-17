@@ -164,9 +164,12 @@ p { margin: 0 0 1rem; }
   font-family: var(--font-display);
   font-size: .74rem;
   font-weight: 600;
-  letter-spacing: .34em;
+  letter-spacing: .12em;
   text-transform: uppercase;
-  /* sin padding: alinea el borde izquierdo con "CODA" */
+  /* "ESTUDIO" se estira para ocupar el mismo ancho que "CODA":
+     los dos bordes (izq. y der.) quedan alineados */
+  text-align: justify;
+  text-align-last: justify;
 }
 .brand-name {
   font-family: var(--font-display);
